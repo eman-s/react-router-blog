@@ -5,29 +5,29 @@ export default class BaseLayout extends Component{
   render(){
     let navBarStyle={
       'backgroundColor': '#222',
-      'height': '150px',
-      'padding':' 20px',
-      'color': 'white',
+      'padding':' 44px',
+      'color': '#f98dc9',
+      'display': 'flex',
+      'justify-content':'space-between',
+      'font-family': 'PressStart2PRegular',
+      'font-weight': 'normal',
+      'font-style': 'normal',
+      'margin' : '0',
+
     }
     return(
 
       <div>
-        <section style={navBarStyle}>
-        <ul className="nav navbar-nav">
-          <li>
-            <NavLink to='/' activeStyle={{color:'yellow'}}>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to='/create' activeClassName='selected'>Create Post</NavLink>
-          </li>
-          <li>
-            <NavLink to='/show' activeClassName='selected'>Show All Posts</NavLink>
-          </li>
-        </ul>
-        </section>
+        <div className='navigation'>
+          <section className='navLinks' style={navBarStyle}>
+              <NavLink to='/create' activeStyle={{color:'#f765b8','text-decoration':'none'}}>Create Post</NavLink>
+              <NavLink to='/show'  activeStyle={{color:'#f765b8','text-decoration':'none'}}>Show All Posts</NavLink>
+          </section>
+        </div>
         <section>
           {this.props.children}
         </section>
+
       </div>
 
     )

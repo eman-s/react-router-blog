@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
 
 export default class CreatePost extends Component{
   constructor(props){
@@ -22,6 +21,7 @@ export default class CreatePost extends Component{
         'title': e.target.value,
         'blog': e.target.value
       });
+      this.props.history.push('/')
       let listItem = JSON.stringify(this.state);
 
       fetch("https://tiny-lasagna-server.herokuapp.com/collections/blogger/", {
@@ -63,30 +63,24 @@ export default class CreatePost extends Component{
 
 
   render(){
-    let formStyle={
-      'backgroundColor': '#222',
-      'height': '150px',
-      'padding':' 20px',
-      'color': 'white'
-    }
+
     return(
-    <div style={formStyle} >
-      <form >
-    <div className="form-group">
-      <label>Name:</label>
-      <input onChange={this.handleNameChange} value={this.state.name} type="text" className="form-control" placeholder="your name here"></input>
-    </div>
-    <div className="form-group">
-      <label>Title:</label>
-      <input onChange={this.handleTitleChange} value={this.state.title} type="text" className="form-control" placeholder="blog title"></input>
-    </div>
-    <div className="form-group">
-      <label>BLOG:</label>
-      <textarea onChange={this.handleBlogChange} value={this.state.blog} className="form-control" rows="3"></textarea>
-    </div>
-    <button onClick={this.addToList} type="submit" className="btn btn-primary">Submit</button>
-  </form>
+      <div>
+        <header>SPILL IT OUT</header>
+
+        <form onSubmit={this.addToList} id="form" className="topBefore">
+
+          <input onChange={this.handleNameChange} value={this.state.name} id="name" type="text" placeholder="NAME"/>
+          <input onChange={this.handleTitleChange} value={this.state.title} id="email" type="text" placeholder="Title"/>
+          <textarea onChange={this.handleBlogChange} value={this.state.blog} id="message" type="text" placeholder="MESSAGE"></textarea>
+          <input id="submit" type="submit" value="GO!"/>
+
+        </form>
       </div>
+
+
+      //
+
     )
   }
 }

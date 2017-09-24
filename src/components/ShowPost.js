@@ -25,12 +25,14 @@ export default class ShowPost extends Component{
       'backgroundColor': '#222',
       'height': '150px',
       'padding':' 20px',
-      'color': 'white'
+      'color': '	#f765b8',
+      'text-align': 'center',
+      'margin': '0 auto'
     }
     let {details} = this.state
     return(
       <div style={formStyle}>
-        <h1>{details.title}</h1>
+        <h1 style={{'text-transform':'uppercase'}}>{details.title}</h1>
         <h3>Posted by:{details.name}</h3>
           <p>{details.blog}</p>
 

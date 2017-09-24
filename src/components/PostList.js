@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 
+
 export default class PostList extends Component{
   constructor(props){
     super(props)
@@ -23,9 +24,10 @@ export default class PostList extends Component{
   render(){
     let listStyle={
       'backgroundColor': '#222',
-      'height': '150px',
       'padding':' 20px',
-      'color': 'white'
+      'color': 'white',
+      'text-align' : 'center',
+      'text-transform' : 'uppercase'
     }
     console.log(this.state.blogList);
     let blogs = this.state.blogList
